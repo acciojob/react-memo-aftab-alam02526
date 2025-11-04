@@ -1,14 +1,16 @@
 import React from "react";
-import UseMemoExample from "../components/UseMemo";
-import ReactMemoExample from "../components/ReactMemo";
+import UseMemoComponent from "../components/UseMemo";
+import ReactMemoComponent from "../components/ReactMemo";
 
-export default function App() {
+const App = () => {
   return (
     <div id="main">
-      <UseMemoExample />
-      <ReactMemoExample />
+      <UseMemoComponent />
+      <ReactMemoComponent />
     </div>
   );
-}
+};
+
+export default App;
 
 
