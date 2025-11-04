@@ -1,8 +1,6 @@
 import React, { useState, memo } from "react";
 
-const SkillItem = memo(({ skill }) => {
-  return <li>{skill}</li>;
-});
+const Skill = memo(({ name }) => <li>{name}</li>);
 
 export default function ReactMemoExample() {
   const [skills, setSkills] = useState([]);
@@ -16,9 +14,8 @@ export default function ReactMemoExample() {
   };
 
   return (
-    <div className="reactmemo-section">
+    <div>
       <h2>React Memo testing</h2>
-
       <input
         type="text"
         placeholder="Enter skill"
@@ -26,13 +23,13 @@ export default function ReactMemoExample() {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <button onClick={handleAddSkill}>Add Skill</button>
-
       <ul>
         {skills.map((skill, index) => (
-          <SkillItem key={index} skill={skill} />
+          <Skill key={index} name={skill} />
         ))}
       </ul>
     </div>
   );
 }
+
 
