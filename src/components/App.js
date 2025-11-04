@@ -1,6 +1,6 @@
 import React from "react";
-import UseMemoExample from "./components/UseMemo";
-import ReactMemoExample from "./components/ReactMemo";
+import UseMemoExample from "../components/UseMemo";
+import ReactMemoExample from "../components/ReactMemo";
 
 export default function App() {
   return (
