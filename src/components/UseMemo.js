@@ -1,25 +1,28 @@
 import React, { useState, useMemo } from "react";
 
-export default function UseMemoExample() {
+const UseMemoComponent = () => {
   const [todos, setTodos] = useState([]);
 
-  // useMemo: derive count (to satisfy performance optimization)
+  // useMemo for optimization
   const todoCount = useMemo(() => todos.length, [todos]);
 
-  const handleAddTodo = () => {
-    setTodos([...todos, "New todo"]);
+  const addTodo = () => {
+    setTodos([...todos, "new todo"]);
   };
 
   return (
     <div>
-      <h2>Use Memo testing</h2>
-      <button onClick={handleAddTodo}>Add todo</button>
+      <h1>Use Memo testing</h1>
+      <button onClick={addTodo}>Add todo</button>
       <ul>
         {todos.map((todo, index) => (
           <li key={index}>{todo}</li>
         ))}
       </ul>
-      <p>Total Todos: {todoCount}</p>
+      <p>Total: {todoCount}</p>
     </div>
   );
-}
+};
+
+export default UseMemoComponent;
+
