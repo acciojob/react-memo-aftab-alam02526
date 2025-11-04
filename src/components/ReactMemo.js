@@ -1,26 +1,28 @@
 import React, { useState, memo } from "react";
 
-const Skill = memo(({ name }) => <li>{name}</li>);
+const Skill = memo(({ name }) => {
+  return <li>{name}</li>;
+});
 
-export default function ReactMemoExample() {
+const ReactMemoComponent = () => {
   const [skills, setSkills] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [input, setInput] = useState("");
 
   const handleAddSkill = () => {
-    if (inputValue.trim() !== "") {
-      setSkills([...skills, inputValue]);
-      setInputValue("");
+    if (input.trim() !== "") {
+      setSkills([...skills, input]);
+      setInput("");
     }
   };
 
   return (
     <div>
-      <h2>React Memo testing</h2>
+      <h1>React Memo testing</h1>
       <input
         type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
         placeholder="Enter skill"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
       />
       <button onClick={handleAddSkill}>Add Skill</button>
       <ul>
@@ -30,6 +32,7 @@ export default function ReactMemoExample() {
       </ul>
     </div>
   );
-}
+};
 
+export default ReactMemoComponent;
 
