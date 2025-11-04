@@ -1,21 +1,22 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 
-export default function UseMemoExample() {
-  const [num, setNum] = useState(0);
-
-  const squared = useMemo(() => {
-    console.log("Calculating square...");
-    return num * num;
-  }, [num]);
+export default function UseMemoExample({ onAddTodo, todos, count }) {
+  // useMemo — simulate a derived value
+  const todoCount = useMemo(() => count, [count]);
 
   return (
-    <div className="memo-section">
-      <h3>useMemo Example</h3>
-      <p>Number: {num}</p>
-      <p>Squared (memoized): {squared}</p>
-      <button id="num-increment-btn" onClick={() => setNum(num + 1)}>
-        Increase Number
-      </button>
+    <div className="usememo-section">
+      <h2>Use Memo testing</h2>
+      <button onClick={onAddTodo}>Add todo</button>
+
+      {/* ✅ Must have <ul> for Cypress */}
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+
+      <p>Total Todos: {todoCount}</p>
     </div>
   );
 }
